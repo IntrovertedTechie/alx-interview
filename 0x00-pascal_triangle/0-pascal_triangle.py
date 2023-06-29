@@ -2,6 +2,15 @@
 """Pascal's Triangle""" 
 
 def pascal_triangle(n):
+
+       """returns a list of lists of integers repr the Pascal’s triangle of n
+    Args:
+      n (n): size of triangle
+    Returns:
+      list: returns empty list if n <= 0 or list of lists of integers
+      representing Pascal's triangle of n otherwise
+    """ 
+    
     if n <= 0:
         return []
 
