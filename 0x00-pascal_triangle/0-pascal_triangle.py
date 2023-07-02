@@ -2,13 +2,7 @@
 """Pascal's Triangle"""
 
 def pascal_triangle(n):
-    """Returns a list of lists of integers representing Pascal's triangle of size n.
-
-    Args:
-        n (int): Size of the triangle.
-
-    Returns:
-        list: Returns an empty list if n <= 0 or a list of lists of integers representing Pascal's triangle of size n.
+    """Returns a list of lists of integers.
     """
     if n <= 0:
         return []
