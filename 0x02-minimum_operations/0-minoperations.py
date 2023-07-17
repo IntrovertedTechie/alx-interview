@@ -1,9 +1,12 @@
 #!/usr/bin/python3
+"""
+    Fewest ops.
+    """
 
 
 def minOperations(n):
     """
-    Calculates the fewest number.
+    Fewest ops.
     """
     if n <= 1:
         return 0
