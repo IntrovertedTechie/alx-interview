@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-The Module that parses log and prints stats to stdout.
+Module that parses log and prints stats to stdout.
 """
 from sys import stdin
 
