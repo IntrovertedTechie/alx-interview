@@ -1,45 +1,47 @@
 #!/usr/bin/python3
-import sys
+"""
+The Module that parses log and prints stats to stdout.
+"""
+from sys import stdin
 
-def print_stats(total_size, status_codes):
-    print("File size: {}".format(total_size))
-    sorted_codes = sorted(status_codes.keys())
-    for code in sorted_codes:
-        print("{}: {}".format(code, status_codes[code]))
+status_codes = {
+    "200": 0,
+    "301": 0,
+    "400": 0,
+    "401": 0,
+    "403": 0,
+    "404": 0,
+    "405": 0,
+    "500": 0
+}
 
-def main():
-    total_size = 0
-    status_codes = {
-        200: 0,
-        301: 0,
-        400: 0,
-        401: 0,
-        403: 0,
-        404: 0,
-        405: 0,
-        500: 0
-    }
+size = 0
 
-    try:
-        for i, line in enumerate(sys.stdin, 1):
-            if i > 1 and (i - 1) % 10 == 0:
-                print_stats(total_size, status_codes)
 
-            tokens = line.strip().split()
-            if len(tokens) != 9:
-                continue
+def print_stats():
+    """Prints the accumulated logs"""
+    print("File size: {}".format(size))
+    for status in sorted(status_codes.keys()):
+        if status_codes[status]:
+            print("{}: {}".format(status, status_codes[status]))
 
-            ip, date, request, status, size = tokens[0], tokens[3][1:], tokens[5], int(tokens[7]), int(tokens[8])
-            total_size += size
-
-            if status in status_codes:
-                status_codes[status] += 1
-
-        print_stats(total_size, status_codes)
-
-    except KeyboardInterrupt:
-        print_stats(total_size, status_codes)
-        raise
 
 if __name__ == "__main__":
-    main()
+    count = 0
+    try:
+        for line in stdin:
+            try:
+                items = line.split()
+                size += int(items[-1])
+                if items[-2] in status_codes:
+                    status_codes[items[-2]] += 1
+            except:
+                pass
+            if count == 9:
+                print_stats()
+                count = -1
+            count += 1
+    except KeyboardInterrupt:
+        print_stats()
+        raise
+    print_stats()
