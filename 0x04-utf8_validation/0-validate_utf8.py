@@ -3,20 +3,15 @@
 UTF-8 Validation module
 """
 
+
 def validUTF8(data):
     """
     Determines if a given data set represents a valid UTF-8 encoding.
-
-    Args:
-        data (list): A list of integers representing 1 byte of data.
-
-    Returns:
-        bool: True if data is a valid UTF-8 encoding, else return False.
     """
     num_bytes_to_process = 0
 
     for num in data:
-        byte = num & 0xFF  # Consider only the 8 least significant bits of the integer
+        byte = num & 0xFF  # Consider only the 8 leasr
 
         if num_bytes_to_process == 0:
             if (byte >> 7) == 0:  # 1-byte character
