@@ -21,6 +21,7 @@ def is_safe(board, row, col, N):
     
     return True
 
+
 def nqueens(board, row, N):
     if row == N:
         for i in range(N):
@@ -35,6 +36,7 @@ def nqueens(board, row, N):
             board[row][col] = 1
             nqueens(board, row + 1, N)
             board[row][col] = 0
+
 
 def main():
     if len(sys.argv) != 2:
