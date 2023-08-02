@@ -2,6 +2,7 @@
 """ N Queens with Backtracking"""
 import sys
 
+
 def is_safe(board, row, col, N):
     """ Check if there is a queen in the same column """
     for i in range(row):
