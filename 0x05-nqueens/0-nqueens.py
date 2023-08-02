@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """ N Queens with Backtracking"""
 
+
 import sys
 
 
