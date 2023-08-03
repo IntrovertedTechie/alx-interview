@@ -1,39 +1,37 @@
 #!/usr/bin/python3
 
-  """ Queen N  """
-
+"""Queen N"""
 
 def nqueens(n):
-   
- 
-     if n < 4:
+
+    if n < 4:
         print("N must be at least 4")
         exit(1)
+
     if not isinstance(n, int):
         print("N must be a number")
         exit(1)
 
     board = [[0 for i in range(n)] for j in range(n)]
     solutions = []
-    solve(board, 0, solutions)
+    solve(board, 0, solutions, n)
     return solutions
 
 
-def solve(board, row, solutions)
+def solve(board, row, solutions, n):
 
     if row == n:
-        solutions.append(board[:])
+        solutions.append([row[:] for row in board])
         return
 
     for col in range(n):
-        if is_safe(board, row, col):
+        if is_safe(board, row, col, n):
             board[row][col] = 1
-            solve(board, row + 1, solutions)
+            solve(board, row + 1, solutions, n)
             board[row][col] = 0
 
 
-def is_safe(board, row, col):
-    
+def is_safe(board, row, col, n):
 
     for i in range(row):
         if board[i][col] == 1:
@@ -41,10 +39,11 @@ def is_safe(board, row, col):
 
     for i in range(row):
         for j in range(n):
-            if board[i][j] == 1 and col - j == row - i or col + j == row - i:
+            if board[i][j] == 1 and (col - j == row - i or col + j == row - i):
                 return False
 
     return True
+
 
 if __name__ == "__main__":
     n = int(input("Enter N: "))
