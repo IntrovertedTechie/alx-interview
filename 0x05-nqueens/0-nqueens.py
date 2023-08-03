@@ -12,6 +12,7 @@
 
     """
 
+
 def nqueens(n):
     """
     This function solves the N queens problem 
