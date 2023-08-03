@@ -2,6 +2,7 @@
 
 """Queen N"""
 
+
 def nqueens(n):
 
     if n < 4:
