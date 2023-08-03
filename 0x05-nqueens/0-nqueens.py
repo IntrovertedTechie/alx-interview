@@ -10,7 +10,7 @@ def nqueens(n, y_axis, board):
     Args:
         n (int): The size of the chessboard and the number of queens to place.
         y_axis (int): The current row in which we are trying to place a queen.
-        board (list): List of lists representing the current board state
+        board (list): List of lists representing the current board state.
     """
     for x_axis in range(n):
         hold = 0
