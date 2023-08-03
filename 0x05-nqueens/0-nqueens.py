@@ -7,8 +7,7 @@ import sys
 def nqueens(n, y_axis, board):
     """
     Recursive function to find solutions to the N-Queens problem.
-    
-    Args:
+     Args:
         n (int): The size of the chessboard and the number of queens to place.
         y_axis (int): The current row in which we are trying to place a queen.
         board (list): List of lists representing the current board state.
