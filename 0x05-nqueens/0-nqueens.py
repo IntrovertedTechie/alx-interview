@@ -16,7 +16,9 @@ def nqueens(n, y_axis, board):
         hold = 0
         for queen in board:
             if x_axis == queen[1]
-or y_axis - x_axis == queen[0] - queen[1]    or x_axis - queen[1] == queen[0] - y_axis:
+or y_axis - x_axis == queen[0] - queen[1]    
+
+or x_axis - queen[1] == queen[0] - y_axis:
                 hold = 1
                 break
         if hold == 0:
