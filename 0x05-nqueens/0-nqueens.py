@@ -4,6 +4,16 @@ import sys
 
 
 def nqueens(n):
+    """
+    Method: nqueens - place n queens
+            on an n by n board so that
+            no queens are attacking any
+            others.
+    Parameters: n is an int that sets
+                board size and # of queens
+    Return: All possible solutions to
+            placement, in list of lists form
+    """
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
