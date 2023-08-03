@@ -1,16 +1,6 @@
 #!/usr/bin/python3
 
-  """
-    Method: nqueens - place n queens
-            on an n by n board so that
-            no queens are attacking any
-            others.
-    Parameters: n is an int that sets
-                board size and # of queens
-    Return: All possible solutions to
-            placement, in list of lists 
-
-    """
+  """ Queen N  """
 
 
 def nqueens(n):
