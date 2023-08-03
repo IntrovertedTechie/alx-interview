@@ -1,9 +1,7 @@
 #!/usr/bin/python3
-
 """Queen N"""
-
-
 import sys
+
 
 def nqueens(n):
     if n < 4:
