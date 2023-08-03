@@ -3,6 +3,8 @@
 """Queen N"""
 
 
+import sys
+
 def nqueens(n):
     if n < 4:
         print("N must be at least 4")
