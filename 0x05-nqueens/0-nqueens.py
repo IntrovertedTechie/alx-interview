@@ -1,61 +1,59 @@
 #!/usr/bin/python3
-"""Queen N"""
+"""N Queens - A program to solve the N-Queens problem."""
+
 import sys
 
+def nqueens(n, y_axis, board):
+    """
+    Recursive function to find solutions to the N-Queens problem.
+    
+    Args:
+        n (int): The size of the chessboard and the number of queens to place.
+        y_axis (int): The current row in which we are trying to place a queen.
+        board (list): List of lists representing the current board state.
 
-def nqueens(n):
+    Returns:
+        None (prints the solutions directly).
     """
-    Method: nqueens - place n queens
-            on an n by n board so that
-            no queens are attacking any
-            others.
-    Parameters: n is an int that sets
-                board size and # of queens
-    Return: All possible solutions to
-            placement, in list of lists form
+    for x_axis in range(n):
+        hold = 0
+        for queen in board:
+            if x_axis == queen[1] or y_axis - x_axis == queen[0] - queen[1] or x_axis - queen[1] == queen[0] - y_axis:
+                hold = 1
+                break
+        if hold == 0:
+            board.append([y_axis, x_axis])
+            if y_axis != n - 1:
+                nqueens(n, y_axis + 1, board)
+            else:
+                print(board)
+            del board[-1]
+
+def main():
     """
+    Main function to handle user input and call the nqueens function.
+
+    Usage: ./nqueens.py N
+
+    Args:
+        N (int): The size of the chessboard and the number of queens to place.
+
+    Returns:
+        None (prints the solutions directly).
+    """
+    if len(sys.argv) != 2:
+        print("Usage: nqueens N")
+        sys.exit(1)
+    try:
+        n = int(sys.argv[1])
+    except Exception:
+        print('N must be a number')
+        sys.exit(1)
     if n < 4:
         print("N must be at least 4")
         sys.exit(1)
 
-    if not isinstance(n, int):
-        print("N must be a number")
-        sys.exit(1)
+    nqueens(n, 0, [])
 
-    board = [[0 for i in range(n)] for j in range(n)]
-    solutions = []
-    solve(board, 0, solutions, n)
-    return solutions
-
-
-def solve(board, row, solutions, n):
-    if row == n:
-        solutions.append([row[:] for row in board])
-        return
-
-    for col in range(n):
-        if is_safe(board, row, col, n):
-            board[row][col] = 1
-            solve(board, row + 1, solutions, n)
-            board[row][col] = 0
-
-
-def is_safe(board, row, col, n):
-    for i in range(row):
-        if board[i][col] == 1:
-            return False
-
-    for i in range(row):
-        for j in range(n):
-            if board[i][j] == 1 and (col - j == row - i or col + j == row - i):
-                return False
-
-    return True
-
-
-if __name__ == "__main__":
-    import sys
-    n = int(input("Enter N: "))
-    solutions = nqueens(n)
-    for solution in solutions:
-        print(solution)
+if __name__ == '__main__':
+    main()
