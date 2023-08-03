@@ -51,7 +51,8 @@ def main():
         print("N must be at least 4")
         sys.exit(1)
 
-
     nqueens(n, 0, [])
+
+
 if __name__ == '__main__':
     main()
