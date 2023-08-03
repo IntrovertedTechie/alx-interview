@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """
 This code solves the N queens problems 
 """
@@ -37,6 +36,7 @@ def solve(board, row, solutions):
             board[row][col] = 1
             solve(board, row + 1, solutions)
             board[row][col] = 0
+
 
 def is_safe(board, row, col):
     """
