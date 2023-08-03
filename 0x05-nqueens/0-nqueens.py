@@ -3,6 +3,7 @@
 
 import sys
 
+
 def nqueens(n, y_axis, board):
     """
     Recursive function to find solutions to the N-Queens problem.
@@ -25,6 +26,7 @@ def nqueens(n, y_axis, board):
             else:
                 print(board)
             del board[-1]
+
 
 def main():
     """
