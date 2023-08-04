@@ -3,21 +3,22 @@
 
 import sys
 
-
 def nqueens(n, y_axis, board):
     """
     Recursive function to find solutions to the N-Queens problem.
-     Args:
+    
+    Args:
         n (int): The size of the chessboard and the number of queens to place.
         y_axis (int): The current row in which we are trying to place a queen.
         board (list): List of lists representing the current board state.
+
+    Returns:
+        None (prints the solutions directly).
     """
     for x_axis in range(n):
         hold = 0
         for queen in board:
-            if x_axis == queen[1]
-             or y_axis - x_axis == queen[0] - queen[1]    
-             or x_axis - queen[1] == queen[0] - y_axis:
+            if x_axis == queen[1] or y_axis - x_axis == queen[0] - queen[1] or x_axis - queen[1] == queen[0] - y_axis:
                 hold = 1
                 break
         if hold == 0:
@@ -27,7 +28,6 @@ def nqueens(n, y_axis, board):
             else:
                 print(board)
             del board[-1]
-
 
 def main():
     """
@@ -54,7 +54,6 @@ def main():
         sys.exit(1)
 
     nqueens(n, 0, [])
-
 
 if __name__ == '__main__':
     main()
