@@ -8,7 +8,9 @@ if (!movieId) {
   process.exit(1);
 }
 
+
 const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
+
 
 request(apiUrl, (error, response, body) => {
   if (error) {
@@ -16,6 +18,7 @@ request(apiUrl, (error, response, body) => {
   } else {
     const film = JSON.parse(body);
     const characters = film.characters;
+
 
     characters.forEach((characterUrl) => {
       request(characterUrl, (characterError, characterResponse, characterBody) => {
