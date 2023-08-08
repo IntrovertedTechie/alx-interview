@@ -7,6 +7,7 @@ if (!movieId) {
   console.error('Usage: ./0-starwars_characters.js <movieId>');
   process.exit(1);
 }
+
 const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
 
 request(apiUrl, (error, response, body) => {
