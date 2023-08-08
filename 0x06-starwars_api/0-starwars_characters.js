@@ -1,47 +1,65 @@
 #!/usr/bin/node
+/**
+ * 0x06. StarWars API
+ */
 
+const process = require('process');
 const request = require('request');
 
-function fetchCharacterName(characterUrl) {
-  return new Promise((resolve, reject) => {
-    request(characterUrl, (error, response, body) => {
-      if (error) {
-        reject(error);
-        return;
-      }
-
-      const characterData = JSON.parse(body);
-      resolve(characterData.name);
-    });
-  });
+if (process.argv.length !== 3) {
+  process.exit(0);
 }
 
-function printMovieCharacters(movieId) {
-  const apiUrl = `https://swapi.dev/api/films/${movieId}/`;
+const command1 = 'films/' + process.argv[2];
+const urlApi = 'https://swapi-api.hbtn.io/api/';
+const request1 = urlApi + command1;
+let list = [];
+let currentId = -1;
+let limitMax = 0;
 
-  request(apiUrl, async (error, response, body) => {
+/**
+ * loadUrlApi fn that connect with api
+ *
+ * @return void and load default fn to read names
+ */
+function loadUrlApi () {
+  request(request1, function (error, response, body) {
     if (error) {
-      console.error(error);
-      return;
+      console.log('error:', error);
+      // throw error
+      process.exit(1);
     }
-
-    const filmData = JSON.parse(body);
-    const characters = filmData.characters;
-
-    for (const characterUrl of characters) {
-      try {
-        const characterName = await fetchCharacterName(characterUrl);
-        console.log(characterName);
-      } catch (error) {
-        console.error(error);
-      }
+    list = JSON.parse(body).characters;
+    currentId = 0;
+    if (Array.isArray(list)) {
+      limitMax = list.length;
+      loadFilmName();
     }
   });
 }
 
-const movieId = process.argv[2];
-if (movieId) {
-  printMovieCharacters(movieId);
-} else {
-  console.log('Usage: ./0-starwars_characters.js <movie_id>');
+/**
+ * loadFilmName fn recursive that load film name
+ *
+ * @return void
+ */
+function loadFilmName () {
+  if (limitMax > currentId) {
+    request(list[currentId], function (error, response, body) {
+      if (error) {
+        console.log('error:', error);
+        // throw error
+        process.exit(1);
+      }
+      const name = JSON.parse(body).name;
+      console.log(name);
+      currentId++;
+      loadFilmName();
+    });
+  }
 }
+
+/**
+ * loadUrlApi fn run script
+ */
+loadUrlApi();
