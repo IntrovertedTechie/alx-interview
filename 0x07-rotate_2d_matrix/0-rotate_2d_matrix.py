@@ -7,7 +7,6 @@ Rotate 2D Matrix
 def rotate_2d_matrix(matrix):
     """
     Rotates a given n x n 2D matrix 90 degrees clockwise.
-    
     :param matrix: The input matrix to be rotated.
     :type matrix: List[List[int]]
     """
@@ -17,6 +16,7 @@ def rotate_2d_matrix(matrix):
             matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
     for i in range(n):
         matrix[i].reverse()
+
 
 if __name__ == "__main__":
     matrix = [[1, 2, 3],
