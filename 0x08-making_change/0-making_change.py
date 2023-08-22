@@ -3,6 +3,7 @@
 Module for making change
 """
 
+from collections import defaultdict
 
 def makeChange(coins, total):
     """
@@ -10,7 +11,8 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
-    dp = [float('inf')] * (total + 1)
+    
+    dp = defaultdict(lambda: float('inf'))
     dp[0] = 0
 
     # Iterate through all coin values
