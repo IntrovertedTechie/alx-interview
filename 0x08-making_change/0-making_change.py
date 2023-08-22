@@ -3,6 +3,7 @@
 Module for making change
 """
 
+
 def makeChange(coins, total):
     """
     Determines the fewest number of coins needed to meet a given amount total.
@@ -10,7 +11,7 @@ def makeChange(coins, total):
     if total <= 0:
         return 0
 
-    # Initialize a list to store the minimum number of coins needed for each value
+    # Initialize a list 
     dp = [float('inf')] * (total + 1)
     dp[0] = 0
 
