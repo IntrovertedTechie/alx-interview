@@ -5,6 +5,7 @@ Module for making change
 
 from collections import defaultdict
 
+
 def makeChange(coins, total):
     """
     Determines the fewest number of coins needed to meet a given amount total.
