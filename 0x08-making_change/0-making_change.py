@@ -12,7 +12,6 @@ def makeChange(coins, total):
     """
     if total <= 0:
         return 0
-    
     dp = defaultdict(lambda: float('inf'))
     dp[0] = 0
 
