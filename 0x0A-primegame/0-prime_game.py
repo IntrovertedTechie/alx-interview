@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """ 
 This Python script implements a Prime Game Algorithm.
 """
