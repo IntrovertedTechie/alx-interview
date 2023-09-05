@@ -1,19 +1,22 @@
 #!/usr/bin/python3
-"""This Python script implements a Prime Game Algorithm."""
 
+""" 
+This Python script implements a Prime Game Algorithm.
+"""
 
 def is_prime(n):
-"""Checks whether a given number 'n' is a prime number.
-    Returns True if 'n' is prime, False otherwise."""
+    """
+    Checks whether a given number 'n' is a prime number.
+    Returns True if 'n' is prime, False otherwise.
+    """
     for i in range(2, int(n ** 0.5) + 1):
         if n % i == 0:
             return False
     return True
 
-
 def calculate_primes(n, primes):
-    """ 
-Calculates all prime numbers up to 'n'. 
+    """
+    Calculates all prime numbers up to 'n' and stores them in the 'primes' list.
     """
     top_prime = primes[-1]
     if n > top_prime:
@@ -23,10 +26,12 @@ Calculates all prime numbers up to 'n'.
             else:
                 primes.append(0)
 
-
 def isWinner(x, nums):
-    """ 
-Determines the winner of a game based on the provided number of rounds. 
+    """
+    Determines the winner of a game based on the provided number of rounds ('x') and lists of 'nums' for each round.
+    Returns the name of the player who won the most rounds.
+    If the winner cannot be determined, returns None.
+    Assumes that 'n' and 'x' will not exceed 10,000.
     """
     players_wins = {"Maria": 0, "Ben": 0}
     primes = [0, 0, 2]
