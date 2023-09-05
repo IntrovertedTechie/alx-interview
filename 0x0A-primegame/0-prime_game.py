@@ -1,11 +1,10 @@
 #!/usr/bin/python3
-""" 
+"""  
 This Python script implements a Prime Game Algorithm.
 """
 
-
 def is_prime(n):
-    """
+    """ 
     Checks whether a given number 'n' is a prime number.
     Returns True if 'n' is prime, False otherwise.
     """
@@ -14,10 +13,9 @@ def is_prime(n):
             return False
     return True
 
-
 def calculate_primes(n, primes):
-    """
-    Calculates all prime numbers up to 'n' 
+    """ 
+    Calculates all prime numbers up to 'n'. 
     """
     top_prime = primes[-1]
     if n > top_prime:
@@ -27,10 +25,9 @@ def calculate_primes(n, primes):
             else:
                 primes.append(0)
 
-
 def isWinner(x, nums):
-    """
-    Determines the winner of a game based on the provided number of rounds.
+    """ 
+    Determines the winner of a game based on the provided number of rounds. 
     """
     players_wins = {"Maria": 0, "Ben": 0}
     primes = [0, 0, 2]
