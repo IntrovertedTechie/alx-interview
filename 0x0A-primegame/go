@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-""" This Python script implements a Prime Game Algorithm."""
+
+""" 
+This Python script implements a Prime Game Algorithm.
+"""
 
 
 def is_prime(n):
@@ -12,10 +15,9 @@ def is_prime(n):
             return False
     return True
 
-
 def calculate_primes(n, primes):
     """
-    Calculates all prime number.
+    Calculates all prime numbers up to 'n' and stores them in the 'primes' list.
     """
     top_prime = primes[-1]
     if n > top_prime:
