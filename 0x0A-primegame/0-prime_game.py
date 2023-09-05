@@ -2,6 +2,10 @@
 
 
 def is_prime(num):
+    """
+    Check if a number is prime.
+    Returns True if prime, False otherwise.
+    """
     if num <= 1:
         return False
     if num <= 3:
@@ -17,6 +21,10 @@ def is_prime(num):
 
 
 def isWinner(x, nums):
+    """
+    Determine the winner between Maria and Ben based on prime counts.
+    Returns 'Maria', 'Ben', or None.
+    """
     if x <= 0 or not nums:
         return None
 
