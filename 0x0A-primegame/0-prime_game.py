@@ -1,7 +1,9 @@
 #!/usr/bin/python3
+
 """  
 This Python script implements a Prime Game Algorithm.
 """
+
 
 def is_prime(n):
     """ 
@@ -12,6 +14,7 @@ def is_prime(n):
         if n % i == 0:
             return False
     return True
+
 
 def calculate_primes(n, primes):
     """ 
@@ -24,6 +27,7 @@ def calculate_primes(n, primes):
                 primes.append(i)
             else:
                 primes.append(0)
+
 
 def isWinner(x, nums):
     """ 
