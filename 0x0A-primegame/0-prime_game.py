@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 
+
 def is_prime(num):
     if num <= 1:
         return False
@@ -13,6 +14,7 @@ def is_prime(num):
             return False
         i += 6
     return True
+
 
 def isWinner(x, nums):
     if x <= 0 or not nums:
