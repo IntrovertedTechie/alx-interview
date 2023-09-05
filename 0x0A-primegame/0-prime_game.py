@@ -30,7 +30,7 @@ Calculates all prime numbers up to 'n'.
 
 def isWinner(x, nums):
     """ 
-    Determines the winner of a game based on the provided number of rounds. 
+Determines the winner of a game based on the provided number of rounds. 
     """
     players_wins = {"Maria": 0, "Ben": 0}
     primes = [0, 0, 2]
