@@ -18,7 +18,7 @@ def is_prime(n):
 
 def calculate_primes(n, primes):
     """
-    Calculates all prime numbers up to 'n' and stores them in the 'primes' list.
+    Calculates all prime numbers up to 'n' 
     """
     top_prime = primes[-1]
     if n > top_prime:
@@ -31,10 +31,7 @@ def calculate_primes(n, primes):
 
 def isWinner(x, nums):
     """
-    Determines the winner of a game based on the provided number of rounds ('x') and lists of 'nums' for each round.
-    Returns the name of the player who won the most rounds.
-    If the winner cannot be determined, returns None.
-    Assumes that 'n' and 'x' will not exceed 10,000.
+    Determines the winner of a game based on the provided number of rounds.
     """
     players_wins = {"Maria": 0, "Ben": 0}
     primes = [0, 0, 2]
