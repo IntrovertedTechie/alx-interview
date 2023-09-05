@@ -17,7 +17,7 @@ Checks whether a given number 'n' is a prime number.
 
 def calculate_primes(n, primes):
     """ 
-    Calculates all prime numbers up to 'n'. 
+Calculates all prime numbers up to 'n'. 
     """
     top_prime = primes[-1]
     if n > top_prime:
